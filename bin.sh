@@ -27,7 +27,7 @@ sqlite3 $dbfile "$schema"
 mapfile -t entries < <(sqlite3 $dbfile "select name, host, user, port, id_key from remotes order by name asc")
 
 if [ "${#entries[@]}" -eq 0 ]; then
-    echo "WARN: No DB entries"
+    echo "WARN: No DB entries at '$dbfile'"
     exit 0
 fi
 
