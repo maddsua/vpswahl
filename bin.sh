@@ -110,7 +110,6 @@ while true; do
     
     case "$input" in
 
-        # Up arrow key
         $'\x1b' )
 
             read -rsn2 -t 0.1 input
@@ -124,13 +123,12 @@ while true; do
 
             ;;
 
-        # Enter key
         $'' )
 
 			clear
 
 			entry=${entries[$selectedIdx]}
-			sshcmd=$(gencmd $entry)
+			sshcmd=$(gencmd "$entry")
 
 			IFS='|' read -r name _ <<< "$entry"
 
